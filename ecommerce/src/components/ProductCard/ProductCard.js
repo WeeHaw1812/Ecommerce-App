@@ -7,11 +7,13 @@ const ProductCard = ({ products = [] }) => {
       <div className="container px-5 py-24 mx-auto">
         <div className="flex flex-wrap -m-4">
           {products.map((product) => {
-            console.log(product, "product");
             const { id, title, price, description, category, image, rating } =
               product;
             return (
-              <div className="lg:w-1/4 md:w-1/2 p-4 w-full border border-opacity-20 cursor-pointer my-2">
+              <div
+                key={id}
+                className="lg:w-1/4 md:w-1/2 p-4 w-full border border-opacity-20 cursor-pointer my-2"
+              >
                 <Link
                   to={`/products/${id}`}
                   className="block relative h-48 rounded overflow-hidden"

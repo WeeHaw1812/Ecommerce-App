@@ -23,9 +23,11 @@ const Cart = () => {
   const handleDec = (id) => {
     const updateCart = carts.map((item) => {
       if (item.id === id) {
+        // Kiểm tra nếu số lượng đã là 1, thì không giảm nữa
+        const newQuantity = item.quantity > 1 ? item.quantity - 1 : 1;
         return {
           ...item,
-          quantity: item.quantity - 1,
+          quantity: newQuantity,
         };
       }
       return item;
